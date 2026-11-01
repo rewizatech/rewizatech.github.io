@@ -17,7 +17,7 @@ Rewiza Tech berfokus pada pengembangan aplikasi Android yang ringan, andal, dan 
 ## 📂 Struktur Repositori
 
 - `/apps` — Informasi seputar aplikasi yang telah dirilis.
-- `/privacy` — Dokumen kebijakan privasi resmi untuk kepatuhan Google Play Store.
+- `/privacy policy` — Dokumen kebijakan privasi resmi untuk kepatuhan Google Play Store.
 - `/faq` — Pertanyaan yang sering diajukan seputar aplikasi dan layanan.
 - `/contact` — Informasi kontak dan layanan dukungan.
 - `/assets` — Aset visual, ikon, gambar, dan gaya (CSS).
