@@ -1,0 +1,30 @@
+# Antigravity Workspace & Staging Packages
+antigravity/
+github-pages-root/
+source-reference/
+website-project-source/
+
+# Project preparation & audit guides (internal staging)
+CHECKLIST_AKHIR.md
+INVENTARIS_DAN_STATUS.md
+PACKAGE_MANIFEST.json
+PANDUAN_UTAMA_DARI_AWAL_SAMPAI_RILIS.md
+PANDUAN_WINDOWS_ANTIGRAVITY_GITHUB.md
+README_PAKET.md
+AUDIT_REPOSITORY_REWIZA_TECH.md
+IMPLEMENTATION_PLAN_REWIZA_TECH.md
+CONTENT_AUDIT_REWIZA_TECH.md
+
+# OS metadata & temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor & scratch files
+.vscode/
+.idea/
+scratch/
+*.log
+*.tmp
+
