@@ -1,26 +1,131 @@
-﻿<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0072F5"><title>Kasir Laris â€” Aplikasi Kasir Android | Rewiza Tech</title><meta name="description" content="Kenali Kasir Laris, aplikasi kasir Android offline-first untuk UMKM dari Rewiza Tech."><link rel="canonical" href="https://rewizatech.github.io/apps/kasir-laris/"><meta property="og:type" content="website"><meta property="og:title" content="Kasir Laris â€” Aplikasi Kasir Android | Rewiza Tech"><meta property="og:description" content="Kenali Kasir Laris, aplikasi kasir Android offline-first untuk UMKM dari Rewiza Tech."><meta property="og:url" content="https://rewizatech.github.io/apps/kasir-laris/"><meta property="og:image" content="https://rewizatech.github.io/assets/brand/logo-transparent.png"><meta name="twitter:card" content="summary"><link rel="icon" href="/assets/icons/favicon.png"><link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/css/style.css"></head><body><a class="skip-link" href="#main">Lewati ke konten</a><header class="site-header"><a class="brand" href="/"><img src="/assets/brand/logo-transparent.png" alt=""><span>Rewiza Tech</span></a><nav class="nav-links" aria-label="Navigasi utama"><a href="/">Home</a><a href="/apps/">Apps</a><a href="/about/">About</a><a href="/privacy-policy/">Legal</a><a href="/support/">Support</a></nav><div class="header-actions"><button class="theme-toggle" data-theme-toggle type="button">â— System</button><a class="button" href="/support/">Hubungi Kami â†—</a></div></header><nav class="mobile-nav" aria-label="Navigasi bawah"><a href="/"><span class="nav-icon">âŒ‚</span>Home</a><a href="/apps/"><span class="nav-icon">â–¦</span>Apps</a><a href="/about/"><span class="nav-icon">â—Ž</span>About</a><a href="/privacy-policy/"><span class="nav-icon">âš–</span>Legal</a><a href="/support/"><span class="nav-icon">âœ‰</span>Support</a></nav><main id="main"><div class="reading-top"></div><article class="reading-wrap">
-<div class="breadcrumbs"><a href="/">Home</a> / <a href="/apps/">Apps</a> / Kasir Laris</div>
-<span class="eyebrow">Aplikasi Android Â· POS</span>
-<h1>Kasir <span class="gradient-text">Laris</span></h1>
-<p class="lead">Aplikasi kasir Android offline-first yang dirancang untuk membantu operasional toko kecil, kios, dan usaha mikro, kecil, dan menengah (UMKM).</p>
-<div class="card" style="margin:25px 0"><div class="app-symbol">KL</div><h3>Fokus produk</h3><p>Pengalaman transaksi kasir yang mengutamakan penggunaan lokal pada perangkat. Versi pertama memprioritaskan transaksi dan penyimpanan lokal; sinkronisasi cloud ditunda.</p><span class="status">Detail publikasi perlu diperbarui</span></div>
-<h2>Gambaran fitur dan ruang lingkup</h2>
-<ul>
-<li>Pengelolaan transaksi kasir secara lokal pada perangkat.</li>
-<li>Penyimpanan data lokal dengan Room dan SQLite sebagai keputusan arsitektur proyek.</li>
-<li>Pratinjau struk pada layar setelah transaksi berhasil.</li>
-<li>Informasi struk direncanakan mencakup nomor transaksi, tanggal/waktu, item, kuantitas, harga, subtotal, diskon/pajak jika berlaku, total, uang diterima, dan kembalian untuk pembayaran tunai.</li>
-<li>Kebijakan stok yang dipilih: transaksi diblokir jika stok tidak mencukupi.</li>
-<li>Akses kasir menggunakan PIN 4 digit per kasir.</li>
-</ul>
-<h2>Hal yang belum menjadi fitur rilis</h2>
-<ul>
-<li>Sinkronisasi cloud ditunda untuk versi pertama.</li>
-<li>Integrasi printer fisik ditunda; pratinjau struk di layar menjadi pendekatan versi pertama.</li>
-<li>Aturan pajak, diskon, dan pembulatan masih menunggu keputusan final.</li>
-</ul>
-<div class="notice"><strong>Status ketersediaan</strong><br>Halaman ini merupakan informasi produk awal. Tautan Google Play, nomor versi, tanggal rilis, screenshot, dan status ketersediaan akan ditambahkan setelah listing resmi dan build publik diverifikasi.</div>
-<h2>Kebijakan privasi</h2>
-<p>Silakan baca <a href="/privacy-policy/kasir-laris.html">halaman informasi privasi Kasir Laris</a>. Dokumen tersebut masih perlu disesuaikan dengan implementasi final, daftar izin Android, SDK pihak ketiga, dan perilaku build yang dipublikasikan.</p>
-<h2>Butuh bantuan?</h2><p>Hubungi <a href="https://wa.me/6283155662121" target="_blank" rel="noopener noreferrer">WhatsApp Rewiza Tech</a> atau <a href="mailto:rewizatech@gmail.com">email</a>.</p>
-</article></main><footer class="site-footer"><div>Â© <span id="year">2026</span> Rewiza Tech. All rights reserved.</div><div class="footer-links"><a href="/about/">Tentang</a><a href="/privacy-policy/">Privasi</a><a href="/terms/">Ketentuan</a><a href="/support/">Support</a></div></footer><script>document.getElementById('year').textContent=new Date().getFullYear()</script><script src="/js/app.js" defer></script></body></html>
+﻿<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0072F5">
+  <title>Kasir Laris — Aplikasi Kasir Android | Rewiza Tech</title>
+  <meta name="description" content="Kenali Kasir Laris, aplikasi kasir Android offline-first untuk UMKM dari Rewiza Tech.">
+  <link rel="canonical" href="https://rewizatech.github.io/apps/kasir-laris/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kasir Laris — Aplikasi Kasir Android | Rewiza Tech">
+  <meta property="og:description" content="Kenali Kasir Laris, aplikasi kasir Android offline-first untuk UMKM dari Rewiza Tech.">
+  <meta property="og:url" content="https://rewizatech.github.io/apps/kasir-laris/">
+  <meta property="og:image" content="https://rewizatech.github.io/assets/kasir-laris.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/icons/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/brand/logo-transparent.png" alt="">
+      <span>Rewiza Tech</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <a href="/">Home</a>
+      <a href="/apps/" aria-current="page">Apps</a>
+      <a href="/about/">About</a>
+      <a href="/privacy-policy/">Legal</a>
+      <a href="/support/">Support</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" data-theme-toggle type="button">◐ System</button>
+      <a class="button" href="/support/">Hubungi Kami ↗</a>
+    </div>
+  </header>
+
+  <!-- Mobile Nav SVG -->
+  <nav class="mobile-nav" aria-label="Navigasi bawah">
+    <a href="/">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+      <span>Home</span>
+    </a>
+    <a href="/apps/" aria-current="page">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg></span>
+      <span>Apps</span>
+    </a>
+    <a href="/about/">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span>
+      <span>About</span>
+    </a>
+    <a href="/privacy-policy/">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></span>
+      <span>Legal</span>
+    </a>
+    <a href="/support/">
+      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></span>
+      <span>Support</span>
+    </a>
+  </nav>
+
+  <main id="main">
+    <div class="reading-top"></div>
+    <article class="reading-wrap">
+      <div class="breadcrumbs"><a href="/">Home</a> / <a href="/apps/">Apps</a> / Kasir Laris</div>
+      
+      <!-- Showcase Header Aplikasi -->
+      <div class="app-hero-header">
+        <img src="/assets/kasir-laris.png" alt="Ikon Resmi Kasir Laris POS">
+        <div>
+          <span class="eyebrow" style="margin-bottom:4px">Aplikasi Android · POS Mandiri</span>
+          <h1>Kasir <span class="gradient-text">Laris POS</span></h1>
+          <p>Aplikasi kasir dan pembukuan offline-first untuk UMKM.</p>
+          <div class="badges">
+            <span class="badge primary">Offline-First</span>
+            <span class="badge">SQLite / Room DB</span>
+            <span class="badge">PIN Kasir Aman</span>
+            <span class="badge">Versi 1.0</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="lead">Kasir Laris adalah aplikasi kasir Android yang dirancang khusus untuk mempermudah operasional toko kelontong, kios, warung makan, dan pelaku usaha mikro tanpa memerlukan koneksi internet stabil maupun biaya langganan bulanan.</p>
+
+      <h2>Keunggulan Utama Kasir Laris v1</h2>
+      <ul>
+        <li><strong>Operasional 100% Offline:</strong> Seluruh pencatatan transaksi kasir, daftar harga, dan data barang tersimpan aman di memori lokal HP melalui database SQLite/Room. Tidak ada risiko toko terhenti saat internet padam.</li>
+        <li><strong>Proteksi Akses PIN:</strong> Login kasir dilindungi dengan sistem PIN 4 digit untuk menjaga privasi data penjualan toko Anda.</li>
+        <li><strong>Pencegahan Transaksi Melebihi Stok:</strong> Sistem otomatis memblokir transaksi apabila stok barang dagangan tidak mencukupi, mencegah kekeliruan pencatatan stok.</li>
+        <li><strong>Pratinjau Struk Digital:</strong> Setelah transaksi diselesaikan, struk digital langsung ditampilkan di layar dengan rincian nomor invoice, daftar belanja, kuantitas, harga, total belanja, uang tunai, dan nilai kembalian.</li>
+      </ul>
+
+      <h2>Spesifikasi Rilis Versi 1 (Transparansi Fitur)</h2>
+      <p>Sesuai dengan komitmen kejujuran produk Rewiza Tech kepada seluruh pengguna dan Google Play Store:</p>
+      <ul>
+        <li><strong>Penyimpanan Lokal:</strong> Versi 1 memprioritaskan penyimpanan mandiri pada perangkat. Sinkronisasi multi-perangkat via cloud ditunda untuk pembaruan berikutnya.</li>
+        <li><strong>Printer Fisik:</strong> Integrasi printer thermal Bluetooth eksternal ditunda pada build awal; aplikasi mengandalkan pratinjau struk digital di layar dan opsi simpan dokumen lokal.</li>
+        <li><strong>Pajak & Diskon:</strong> Fitur diskon promo fleksibel dan formula pajak sedang dalam tahap finalisasi formula hitung.</li>
+      </ul>
+
+      <div class="notice">
+        <strong>Status Publikasi Google Play Store</strong><br>
+        Aplikasi Kasir Laris saat ini sedang dalam proses peninjauan kepatuhan di Google Play Console. Tautan unduhan resmi akan segera aktif di halaman ini begitu proses verifikasi Google Play selesai.
+      </div>
+
+      <h2>Kepatuhan Privasi & Perlindungan Data</h2>
+      <p>Kami menjamin seluruh data transaksi keuangan dan barang dagangan Anda tetap menjadi milik pribadi Anda seutuhnya. Silakan pelajari dokumen resmi kami:</p>
+      <p style="margin-top:12px">
+        <a class="button secondary" href="/privacy-policy/kasir-laris.html">Baca Kebijakan Privasi Kasir Laris →</a>
+      </p>
+
+      <h2>Layanan Bantuan</h2>
+      <p>Jika Anda memiliki kendala teknis, pertanyaan operasional, atau saran pengembangan untuk Kasir Laris, silakan hubungi tim kami via <a href="https://wa.me/6283155662121?text=Halo%20Rewiza%20Tech%2C%20saya%20ingin%20bertanya%20seputar%20Kasir%20Laris." target="_blank" rel="noopener noreferrer">WhatsApp Pengembang</a> atau melalui <a href="mailto:rewizatech@gmail.com">email resmi</a>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>© <span id="year">2026</span> Rewiza Tech. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="/about/">Tentang</a>
+      <a href="/privacy-policy/">Privasi</a>
+      <a href="/terms/">Ketentuan</a>
+      <a href="mailto:rewizatech@gmail.com">Email</a>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>

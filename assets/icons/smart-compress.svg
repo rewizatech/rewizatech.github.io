@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#0072F5"/>
+      <stop offset="100%" stop-color="#091E60"/>
+    </linearGradient>
+    <linearGradient id="glyphGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E0F7FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- App Icon Background Squircle -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)"/>
+  <!-- Decorative Ring -->
+  <rect x="48" y="48" width="416" height="416" rx="98" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.2"/>
+  <!-- Central Compress Glyph -->
+  <g filter="url(#shadow)" fill="url(#glyphGrad)">
+    <!-- Top Arrow pointing inward down -->
+    <path d="M 256 128 L 298 178 L 268 178 L 268 214 L 244 214 L 244 178 L 214 178 Z"/>
+    <!-- Bottom Arrow pointing inward up -->
+    <path d="M 256 384 L 214 334 L 244 334 L 244 298 L 268 298 L 268 334 L 298 334 Z"/>
+    <!-- Media / File Box Center -->
+    <rect x="156" y="226" width="200" height="60" rx="14" fill="#FFFFFF" fill-opacity="0.95"/>
+    <!-- Horizontal compression lines inside box -->
+    <rect x="176" y="244" width="80" height="8" rx="4" fill="#0072F5"/>
+    <rect x="176" y="260" width="120" height="8" rx="4" fill="#00B4D8"/>
+    <circle cx="320" cy="256" r="14" fill="#00E5FF"/>
+  </g>
+</svg>

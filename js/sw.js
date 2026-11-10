@@ -1,11 +1,30 @@
-const CACHE='rewiza-static-v1';
-const CORE=['/','/apps/','/about/','/privacy-policy/','/terms/','/support/','/faq/','/apps/kasir-laris/','/css/style.css','/js/app.js','/manifest.json','/assets/brand/logo-transparent.png','/assets/icons/icon-192.png','/assets/icons/icon-512.png'];
+const CACHE='rewiza-static-v2';
+const CORE=[
+  '/',
+  '/apps/',
+  '/about/',
+  '/privacy-policy/',
+  '/privacy-policy/kasir-laris.html',
+  '/privacy-policy/utility.html',
+  '/terms/',
+  '/support/',
+  '/faq/',
+  '/apps/kasir-laris/',
+  '/css/style.css',
+  '/js/app.js',
+  '/manifest.json',
+  '/assets/brand/logo-transparent.png',
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png',
+  '/assets/kasir-laris.png',
+  '/assets/icons/smart-compress.svg'
+];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
- const req=event.request; if(req.method!=='GET')return;
- const url=new URL(req.url); if(url.origin!==location.origin)return;
- const isLegal=/\/(privacy|privacy-policy|terms)\//.test(url.pathname);
- if(isLegal){event.respondWith(fetch(req).catch(()=>caches.match(req).then(r=>r||caches.match('/'))));return;}
- event.respondWith(caches.match(req).then(cached=>cached||fetch(req).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));}return res;}).catch(()=>caches.match('/'))));
+  const req=event.request; if(req.method!=='GET')return;
+  const url=new URL(req.url); if(url.origin!==location.origin)return;
+  const isLegal=/\/(privacy|privacy-policy|terms)\//.test(url.pathname);
+  if(isLegal){event.respondWith(fetch(req).catch(()=>caches.match(req).then(r=>r||caches.match('/'))));return;}
+  event.respondWith(caches.match(req).then(cached=>cached||fetch(req).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));}return res;}).catch(()=>caches.match('/'))));
 });
