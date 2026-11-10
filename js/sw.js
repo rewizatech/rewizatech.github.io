@@ -1,7 +1,8 @@
-const CACHE='rewiza-static-v2';
-const CORE=[
+const CACHE = 'rewiza-static-v3';
+const CORE = [
   '/',
   '/apps/',
+  '/apps/kasir-laris/',
   '/about/',
   '/privacy-policy/',
   '/privacy-policy/kasir-laris.html',
@@ -9,22 +10,71 @@ const CORE=[
   '/terms/',
   '/support/',
   '/faq/',
-  '/apps/kasir-laris/',
   '/css/style.css',
   '/js/app.js',
   '/manifest.json',
+  '/data/apps.json',
   '/assets/brand/logo-transparent.png',
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png',
   '/assets/kasir-laris.png',
   '/assets/icons/smart-compress.svg'
 ];
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
-self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',event=>{
-  const req=event.request; if(req.method!=='GET')return;
-  const url=new URL(req.url); if(url.origin!==location.origin)return;
-  const isLegal=/\/(privacy|privacy-policy|terms)\//.test(url.pathname);
-  if(isLegal){event.respondWith(fetch(req).catch(()=>caches.match(req).then(r=>r||caches.match('/'))));return;}
-  event.respondWith(caches.match(req).then(cached=>cached||fetch(req).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));}return res;}).catch(()=>caches.match('/'))));
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+
+  const url = new URL(req.url);
+  if (url.origin !== location.origin) return;
+
+  const isHtml =
+    req.mode === 'navigate' ||
+    (req.headers.get('accept') || '').includes('text/html') ||
+    url.pathname.endsWith('/') ||
+    url.pathname.endsWith('.html');
+
+  if (isHtml) {
+    event.respondWith(
+      fetch(req)
+        .then(res => {
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then(c => c.put(req, copy));
+          }
+          return res;
+        })
+        .catch(() => caches.match(req).then(r => r || caches.match('/')))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(req).then(cached =>
+      cached ||
+      fetch(req)
+        .then(res => {
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then(c => c.put(req, copy));
+          }
+          return res;
+        })
+        .catch(() => caches.match('/'))
+    )
+  );
 });

@@ -30,8 +30,28 @@ Rewiza Tech berfokus pada pengembangan aplikasi Android yang ringan, efisien, of
 - `/css/` — Stylesheet CSS mandiri (Dark/Light theme switch).
 - `/js/` — Skrip interaksi tema, ripple effect, dan Service Worker PWA.
 - `manifest.json` — Konfigurasi Progressive Web App (PWA).
-- `sw.js` — Service Worker untuk fungsionalitas caching offline.
+- `sw.js` — Service Worker untuk fungsionalitas caching offline (Network-First untuk HTML).
 - `robots.txt` & `sitemap.xml` — Konfigurasi SEO dan pengindeksan search engine.
+- `data/apps.json` — Sumber data tunggal katalog aplikasi studio.
+- `src/` & `scripts/` — Template layout terpusat (`build.py`) dan skrip QA otomatis (`verify.py`).
+- `.github/workflows/qa.yml` — Verifikasi otomatis link, SEO, dan kepatuhan privasi pada setiap push.
+
+---
+
+## 🛠️ Pembaruan & Pengujian Lokal
+
+Untuk mengubah menu navigasi, footer, atau menambah aplikasi baru di `data/apps.json`, cukup jalankan:
+
+```bash
+python scripts/build.py
+python scripts/verify.py
+```
+
+Untuk pratinjau lokal lengkap beserta Service Worker:
+
+```bash
+python -m http.server 8000
+```
 
 ---
 

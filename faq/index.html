@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="id">
 <head>
   <meta charset="utf-8">
@@ -15,7 +15,9 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/assets/icons/favicon.png">
   <link rel="manifest" href="/manifest.json">
+  <script>(()=>{try{var t=localStorage.getItem('rwz-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/style.css">
+  
 </head>
 <body>
   <a class="skip-link" href="#main">Lewati ke konten</a>
@@ -37,68 +39,100 @@
     </div>
   </header>
 
-  <!-- Mobile Nav SVG -->
   <nav class="mobile-nav" aria-label="Navigasi bawah">
     <a href="/">
-      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+      <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
       <span>Home</span>
     </a>
     <a href="/apps/">
-      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg></span>
+      <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg></span>
       <span>Apps</span>
     </a>
     <a href="/about/">
-      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span>
+      <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span>
       <span>About</span>
     </a>
     <a href="/privacy-policy/">
-      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></span>
+      <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></span>
       <span>Legal</span>
     </a>
     <a href="/support/">
-      <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></span>
+      <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></span>
       <span>Support</span>
     </a>
   </nav>
 
   <main id="main">
-    <div class="reading-top"></div>
-    <article class="reading-wrap">
-      <div class="breadcrumbs"><a href="/">Home</a> / FAQ</div>
-      <span class="eyebrow">Tanya jawab umum</span>
-      <h1>Pertanyaan yang Sering <span class="gradient-text">Diajukan</span></h1>
-      <p class="lead">Temukan jawaban atas pertanyaan umum seputar aplikasi, privasi data, dan dukungan teknis dari studio pengembang Rewiza Tech.</p>
+<div class="reading-top"></div>
+<article class="reading-wrap">
+  <div class="breadcrumbs"><a href="/">Home</a> / FAQ</div>
+  <span class="eyebrow">Tanya jawab umum</span>
+  <h1>Pertanyaan yang Sering <span class="gradient-text">Diajukan</span></h1>
+  <p class="lead">Temukan jawaban atas pertanyaan umum seputar aplikasi, privasi data, dan dukungan teknis dari studio pengembang Rewiza Tech.</p>
 
-      <h2>1. Apakah aplikasi Kasir Laris benar-benar bisa digunakan tanpa internet?</h2>
-      <p><strong>Ya, 100% offline.</strong> Kasir Laris dirancang dengan arsitektur <em>offline-first</em>. Seluruh fitur pendaftaran produk, pencatatan transaksi kasir, kalkulasi kembalian, dan rekap penjualan berjalan murni di memori lokal ponsel Anda tanpa memerlukan kuota data atau koneksi WiFi.</p>
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>1. Apakah semua aplikasi Rewiza Tech dapat digunakan tanpa internet (offline)?</summary>
+      <div class="faq-answer">
+        <p>Dukungan offline bergantung pada desain masing-masing produk. Khusus <strong>Kasir Laris POS</strong>, aplikasi dirancang dengan pendekatan <em>offline-first</em> sehingga transaksi kasir dan pengelolaan stok berjalan langsung pada penyimpanan lokal perangkat tanpa bergantung pada koneksi internet.</p>
+      </div>
+    </details>
 
-      <h2>2. Apakah data transaksi saya aman dan tidak dilihat orang lain?</h2>
-      <p><strong>Sangat aman.</strong> Karena tidak ada sinkronisasi ke server kami, data penjualan Anda tidak pernah keluar dari ponsel Anda. Data dilindungi oleh sistem keamanan Android sandbox sehingga aplikasi lain di ponsel Anda tidak dapat membacanya.</p>
+    <details class="faq-item">
+      <summary>2. Di mana data transaksi Kasir Laris disimpan?</summary>
+      <div class="faq-answer">
+        <p>Pada versi pertama, seluruh katalog produk, stok, dan riwayat transaksi disimpan secara lokal di database perangkat Android Anda (SQLite/Room) dan dilindungi oleh sistem sandbox bawaan Android. Pengembang tidak mengumpulkan maupun mengirim data transaksi toko Anda ke server eksternal.</p>
+      </div>
+    </details>
 
-      <h2>3. Bagaimana cara mencetak struk transaksi di Kasir Laris?</h2>
-      <p>Pada versi rilis 1.0, setelah transaksi selesai, struk digital lengkap akan otomatis ditampilkan di layar ponsel. Anda dapat memperlihatkan struk ke pelanggan atau memilih opsi simpan/ekspor dokumen PDF. Integrasi printer thermal Bluetooth eksternal ditunda pada build awal demi menjaga kestabilan aplikasi.</p>
+    <details class="faq-item">
+      <summary>3. Bagaimana cara mencetak struk transaksi di Kasir Laris?</summary>
+      <div class="faq-answer">
+        <p>Pada versi rilis 1.0, setelah transaksi selesai, pratinjau struk digital lengkap ditampilkan langsung di layar ponsel. Integrasi printer thermal fisik ditunda pada versi pertama agar fokus pada kestabilan pencatatan transaksi lokal.</p>
+      </div>
+    </details>
 
-      <h2>4. Bagaimana cara mengunduh aplikasi resmi Rewiza Tech?</h2>
-      <p>Seluruh aplikasi kami didistribusikan secara resmi melalui <strong>Google Play Store</strong>. Kunjungi halaman <a href="/apps/">Katalog Aplikasi</a> untuk melihat status ketersediaan dan tautan unduhan langsung ke Google Play.</p>
+    <details class="faq-item">
+      <summary>4. Bagaimana cara mengunduh aplikasi resmi Rewiza Tech?</summary>
+      <div class="faq-answer">
+        <p>Kunjungi halaman <a href="/apps/">Katalog Aplikasi</a> untuk memantau informasi produk terbaru. Tautan unduhan Google Play Store resmi akan ditambahkan di katalog setelah listing publik tersedia dan terverifikasi.</p>
+      </div>
+    </details>
 
-      <h2>5. Bagaimana jika saya berganti HP atau menghapus aplikasi?</h2>
-      <p>Karena seluruh data tersimpan secara lokal, kami sangat menyarankan Anda untuk rutin memanfaatkan fitur ekspor/backup data ke kartu memori atau memindahkan file cadangan secara berkala agar riwayat pembukuan toko Anda tetap aman jika HP hilang atau rusak.</p>
+    <details class="faq-item">
+      <summary>5. Bagaimana jika saya berganti HP atau ingin menghapus data aplikasi?</summary>
+      <div class="faq-answer">
+        <p>Karena data tersimpan secara lokal di perangkat, pastikan Anda mencadangkan atau mengekspor laporan penting sebelum mengganti HP atau mencopot aplikasi. Untuk menghapus data secara permanen, Anda dapat menggunakan menu <em>Pengaturan Android → Aplikasi → Kasir Laris → Hapus Data</em> atau uninstall aplikasi.</p>
+      </div>
+    </details>
 
-      <h2>6. Bagaimana cara menghubungi tim pengembang jika ada kendala?</h2>
-      <p>Anda dapat langsung menghubungi kami melalui WhatsApp di <a href="https://wa.me/6283155662121" target="_blank" rel="noopener noreferrer">0831-5566-2121</a> atau mengirimkan pesan ke email resmi kami di <a href="mailto:rewizatech@gmail.com">rewizatech@gmail.com</a>.</p>
-    </article>
+    <details class="faq-item">
+      <summary>6. Bagaimana cara menghubungi tim pengembang jika butuh bantuan?</summary>
+      <div class="faq-answer">
+        <p>Anda dapat menghubungi kami melalui <a href="https://wa.me/6283155662121" target="_blank" rel="noopener noreferrer">WhatsApp (0831-5566-2121)</a>, email resmi <a href="mailto:rewizatech@gmail.com">rewizatech@gmail.com</a>, atau membuka halaman <a href="/support/">Support</a>.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="notice" style="margin-top:32px">
+    <strong>Belum menemukan jawaban yang Anda cari?</strong><br>
+    Tim kami siap membantu Anda secara langsung melalui kanal dukungan resmi.
+    <p style="margin:12px 0 0"><a class="button sm" href="/support/">Hubungi Support →</a></p>
+  </div>
+</article>
   </main>
 
   <footer class="site-footer">
     <div>© <span id="year">2026</span> Rewiza Tech. All rights reserved.</div>
     <div class="footer-links">
       <a href="/about/">Tentang</a>
+      <a href="/apps/">Aplikasi</a>
+      <a href="/faq/">FAQ</a>
       <a href="/privacy-policy/">Privasi</a>
       <a href="/terms/">Ketentuan</a>
-      <a href="mailto:rewizatech@gmail.com">Email</a>
+      <a href="/support/">Support</a>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/js/app.js" defer></script>
 </body>
 </html>

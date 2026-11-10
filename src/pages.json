@@ -1,0 +1,135 @@
+[
+  {
+    "output": "index.html",
+    "url": "/",
+    "inSitemap": true,
+    "nav": "home",
+    "title": "Rewiza Tech — Android Apps Developer",
+    "description": "Rewiza Tech mengembangkan aplikasi Android modern dengan perhatian pada pengalaman pengguna, engineering, dan pendekatan offline-first.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/home.html",
+    "jsonLd": "organization"
+  },
+  {
+    "output": "apps/index.html",
+    "url": "/apps/",
+    "inSitemap": true,
+    "nav": "apps",
+    "title": "Aplikasi Android — Rewiza Tech",
+    "description": "Katalog resmi aplikasi Android yang dikembangkan oleh Rewiza Tech dengan arsitektur modern dan offline-first.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/apps.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "apps/kasir-laris/index.html",
+    "url": "/apps/kasir-laris/",
+    "inSitemap": true,
+    "nav": "apps",
+    "title": "Kasir Laris — Aplikasi Kasir Android | Rewiza Tech",
+    "description": "Kenali Kasir Laris, aplikasi kasir Android offline-first untuk UMKM dari Rewiza Tech.",
+    "ogImage": "https://rewizatech.github.io/assets/kasir-laris.png",
+    "twitterCard": "summary_large_image",
+    "contentFile": "src/content/kasir-laris.html",
+    "jsonLd": "kasir-laris"
+  },
+  {
+    "output": "about/index.html",
+    "url": "/about/",
+    "inSitemap": true,
+    "nav": "about",
+    "title": "Tentang Rewiza Tech — Profil Studio Pengembang",
+    "description": "Profil Rewiza Tech, filosofi pengembangan aplikasi Android modern, pendekatan offline-first, dan komitmen kualitas engineering.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/about.html",
+    "jsonLd": "organization"
+  },
+  {
+    "output": "privacy-policy/index.html",
+    "url": "/privacy-policy/",
+    "inSitemap": true,
+    "nav": "legal",
+    "title": "Pusat Legal & Privasi — Rewiza Tech",
+    "description": "Pusat dokumen kebijakan privasi dan ketentuan layanan resmi aplikasi Android Rewiza Tech.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/privacy-index.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "privacy-policy/kasir-laris.html",
+    "url": "/privacy-policy/kasir-laris.html",
+    "inSitemap": true,
+    "nav": "legal",
+    "title": "Kebijakan Privasi Kasir Laris POS — Rewiza Tech",
+    "description": "Kebijakan Privasi resmi aplikasi Kasir Laris POS dari Rewiza Tech untuk kepatuhan Google Play Store.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/privacy-kasir-laris.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "privacy-policy/utility.html",
+    "url": "/privacy-policy/utility.html",
+    "inSitemap": true,
+    "nav": "legal",
+    "title": "Kebijakan Privasi Aplikasi Utilitas — Rewiza Tech",
+    "description": "Kebijakan Privasi resmi aplikasi utilitas dan produktivitas Android dari Rewiza Tech.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/privacy-utility.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "terms/index.html",
+    "url": "/terms/",
+    "inSitemap": true,
+    "nav": "legal",
+    "title": "Syarat & Ketentuan Layanan — Rewiza Tech",
+    "description": "Syarat dan Ketentuan penggunaan situs web dan aplikasi Android resmi dari Rewiza Tech.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/terms.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "support/index.html",
+    "url": "/support/",
+    "inSitemap": true,
+    "nav": "support",
+    "title": "Support & Layanan Bantuan — Rewiza Tech",
+    "description": "Hubungi pusat layanan bantuan resmi Rewiza Tech melalui WhatsApp dan Email untuk pertanyaan dan kendala aplikasi.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/support.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "faq/index.html",
+    "url": "/faq/",
+    "inSitemap": true,
+    "nav": "none",
+    "title": "FAQ — Pertanyaan Umum | Rewiza Tech",
+    "description": "Pertanyaan umum seputar aplikasi Android, kebijakan penyimpanan data lokal, dan dukungan teknis Rewiza Tech.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/faq.html",
+    "jsonLd": "none"
+  },
+  {
+    "output": "404.html",
+    "url": "/404.html",
+    "inSitemap": false,
+    "nav": "none",
+    "title": "404 — Halaman Tidak Ditemukan | Rewiza Tech",
+    "description": "Halaman yang Anda tuju tidak ditemukan di website resmi Rewiza Tech.",
+    "ogImage": "https://rewizatech.github.io/assets/brand/logo-transparent.png",
+    "twitterCard": "summary",
+    "contentFile": "src/content/404.html",
+    "jsonLd": "none"
+  }
+]
+

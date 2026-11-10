@@ -1,0 +1,44 @@
+{
+  "studio": {
+    "name": "Rewiza Tech",
+    "tagline": "Android Apps Developer",
+    "url": "https://rewizatech.github.io",
+    "email": "rewizatech@gmail.com",
+    "whatsappDisplay": "0831-5566-2121",
+    "whatsappUrl": "https://wa.me/6283155662121",
+    "logo": "https://rewizatech.github.io/assets/brand/logo-transparent.png"
+  },
+  "apps": [
+    {
+      "id": "kasir-laris",
+      "name": "Kasir Laris POS",
+      "shortName": "Kasir Laris",
+      "tagline": "Aplikasi kasir dan pembukuan offline-first untuk UMKM.",
+      "summary": "Aplikasi pencatatan kasir dan manajemen stok barang offline-first untuk toko kelontong, kedai, dan pelaku UMKM. Bekerja tanpa internet dengan penyimpanan database lokal SQLite/Room.",
+      "homeSummary": "Aplikasi kasir dan pembukuan offline-first untuk toko kecil dan UMKM. Seluruh transaksi dan stok tersimpan lokal di perangkat.",
+      "icon": "/assets/kasir-laris.png",
+      "url": "/apps/kasir-laris/",
+      "privacyUrl": "/privacy-policy/kasir-laris.html",
+      "status": "Menunggu Rilis Resmi",
+      "category": "BusinessApplication",
+      "operatingSystem": "Android",
+      "playStoreUrl": null
+    },
+    {
+      "id": "smart-compress",
+      "name": "Rewiza Smart Compress",
+      "shortName": "Rewiza Smart Compress",
+      "tagline": "Utilitas kompresi media cepat dan lokal.",
+      "summary": "Utilitas Android untuk mengompresi ukuran file foto dan video langsung di memori HP Anda secara cepat tanpa mengurangi ketajaman dan tanpa mengunggah file ke server.",
+      "homeSummary": "Aplikasi utilitas praktis untuk kompresi foto dan video secara lokal tanpa mengurangi kejernihan dan tanpa upload server.",
+      "icon": "/assets/icons/smart-compress.svg",
+      "url": "/apps/#smart-compress",
+      "privacyUrl": "/privacy-policy/utility.html",
+      "status": "Dalam Pengembangan",
+      "category": "UtilitiesApplication",
+      "operatingSystem": "Android",
+      "playStoreUrl": null
+    }
+  ]
+}
+

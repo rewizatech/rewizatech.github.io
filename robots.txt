@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /src/
+Disallow: /scripts/
 Sitemap: https://rewizatech.github.io/sitemap.xml
-
