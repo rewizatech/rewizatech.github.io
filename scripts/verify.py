@@ -93,6 +93,12 @@ def main() -> int:
                 errors.append(f"Missing <title> in {rel}")
             if 'name="description"' not in text:
                 errors.append(f"Missing meta description in {rel}")
+            if 'name="keywords"' not in text:
+                errors.append(f"Missing meta keywords in {rel}")
+            if 'property="og:site_name"' not in text:
+                errors.append(f"Missing og:site_name in {rel}")
+            if 'assets/icons/favicon.svg' not in text:
+                errors.append(f"Missing SVG favicon link in {rel}")
             if 'rel="canonical"' not in text:
                 errors.append(f"Missing canonical link in {rel}")
             if "localStorage.getItem('rwz-theme')" not in text:

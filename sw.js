@@ -1,4 +1,4 @@
-const CACHE = 'rewiza-static-v4';
+const CACHE = 'rewiza-static-v5';
 const CORE = [
   '/',
   '/apps/',
@@ -14,7 +14,12 @@ const CORE = [
   '/js/app.js',
   '/manifest.json',
   '/data/apps.json',
+  '/favicon.ico',
+  '/assets/icons/favicon.svg',
+  '/assets/icons/favicon-32x32.png',
+  '/assets/icons/apple-touch-icon.png',
   '/assets/brand/logo-transparent.png',
+  '/assets/brand/og-image.png',
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png',
   '/assets/kasir-laris.png',

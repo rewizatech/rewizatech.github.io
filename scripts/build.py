@@ -76,14 +76,43 @@ def render_catalog_apps_cards(apps: list[dict]) -> str:
 
 def render_json_ld(kind: str, studio: dict, apps: list[dict]) -> str:
     if kind == "organization":
-        payload = {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": studio["name"],
-            "url": studio["url"] + "/",
-            "logo": studio["logo"],
-            "email": studio["email"],
-        }
+        payload = [
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": studio["name"],
+                "url": studio["url"] + "/",
+                "logo": studio["url"] + "/assets/icons/favicon-512.png",
+                "email": studio["email"],
+                "description": "Studio pengembang aplikasi Android modern dengan fokus offline-first, privasi lokal, dan arsitektur Kotlin modern di Indonesia.",
+                "knowsAbout": [
+                    "Android Development",
+                    "Kotlin",
+                    "Jetpack Compose",
+                    "Offline-First Architecture",
+                    "Point of Sale Software",
+                    "SQLite & Room Database"
+                ],
+                "sameAs": [
+                    "https://github.com/rewizatech"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "Customer Support",
+                    "email": studio["email"],
+                    "telephone": "+6283155662121",
+                    "availableLanguage": ["id", "en"]
+                }
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": studio["name"],
+                "url": studio["url"] + "/",
+                "inLanguage": "id-ID",
+                "description": "Situs resmi studio pengembang aplikasi Android Rewiza Tech."
+            }
+        ]
         return '<script type="application/ld+json">' + json.dumps(payload, ensure_ascii=False) + "</script>"
     if kind == "kasir-laris":
         app = next((a for a in apps if a["id"] == "kasir-laris"), None)
@@ -92,17 +121,54 @@ def render_json_ld(kind: str, studio: dict, apps: list[dict]) -> str:
                 "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
                 "name": app["name"],
-                "operatingSystem": app["operatingSystem"],
-                "applicationCategory": app["category"],
+                "operatingSystem": "Android",
+                "applicationCategory": "BusinessApplication",
                 "description": app["summary"],
                 "url": studio["url"] + app["url"],
+                "image": studio["url"] + app["icon"],
+                "softwareVersion": "1.0",
                 "author": {
                     "@type": "Organization",
                     "name": studio["name"],
                     "url": studio["url"] + "/",
                 },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "IDR",
+                    "availability": "https://schema.org/InStock"
+                },
+                "featureList": [
+                    "Penyimpanan database SQLite lokal tanpa internet",
+                    "Pencatatan transaksi kasir",
+                    "Manajemen produk dan kategori",
+                    "Cetak struk belanja",
+                    "Privasi penuh tanpa pelacakan data"
+                ]
             }
             return '<script type="application/ld+json">' + json.dumps(payload, ensure_ascii=False) + "</script>"
+    if kind == "catalog":
+        items = []
+        for idx, app in enumerate(apps, 1):
+            items.append({
+                "@type": "ListItem",
+                "position": idx,
+                "item": {
+                    "@type": "SoftwareApplication",
+                    "name": app["name"],
+                    "url": studio["url"] + app["url"],
+                    "applicationCategory": app.get("category", "UtilitiesApplication"),
+                    "operatingSystem": "Android",
+                    "description": app["summary"]
+                }
+            })
+        payload = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Katalog Aplikasi Android Rewiza Tech",
+            "itemListElement": items
+        }
+        return '<script type="application/ld+json">' + json.dumps(payload, ensure_ascii=False) + "</script>"
     return ""
 
 
@@ -117,7 +183,7 @@ def build() -> None:
     home_cards_html = render_home_apps_cards(apps)
     catalog_cards_html = render_catalog_apps_cards(apps)
 
-    sitemap_urls = []
+    sitemap_entries = []
     for page in pages:
         content = (ROOT / page["contentFile"]).read_text(encoding="utf-8")
         content = content.replace("{{MOCKUP_APPS}}", mockup_html)
@@ -130,6 +196,7 @@ def build() -> None:
         rendered = layout
         rendered = rendered.replace("{{title}}", html.escape(page["title"]))
         rendered = rendered.replace("{{description}}", html.escape(page["description"]))
+        rendered = rendered.replace("{{keywords}}", html.escape(page.get("keywords", "")))
         rendered = rendered.replace("{{canonical_url}}", html.escape(canonical_url))
         rendered = rendered.replace("{{og_image}}", html.escape(page["ogImage"]))
         rendered = rendered.replace("{{twitter_card}}", html.escape(page["twitterCard"]))
@@ -144,17 +211,33 @@ def build() -> None:
         out_path.write_text(rendered, encoding="utf-8", newline="\n")
 
         if page.get("inSitemap"):
-            sitemap_urls.append(canonical_url)
+            sitemap_entries.append({
+                "loc": canonical_url,
+                "lastmod": "2026-11-12",
+                "changefreq": page.get("changefreq", "monthly"),
+                "priority": page.get("priority", "0.5")
+            })
+
+    sitemap_blocks = []
+    for e in sitemap_entries:
+        sitemap_blocks.append(
+            f"  <url>\n"
+            f"    <loc>{html.escape(e['loc'])}</loc>\n"
+            f"    <lastmod>{e['lastmod']}</lastmod>\n"
+            f"    <changefreq>{e['changefreq']}</changefreq>\n"
+            f"    <priority>{e['priority']}</priority>\n"
+            f"  </url>"
+        )
 
     sitemap_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        *[f"  <url><loc>{html.escape(u)}</loc></url>" for u in sitemap_urls],
+        *sitemap_blocks,
         "</urlset>",
         "",
     ]
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap_lines), encoding="utf-8", newline="\n")
-    print(f"Built {len(pages)} HTML pages and updated sitemap.xml ({len(sitemap_urls)} URLs).")
+    print(f"Built {len(pages)} HTML pages and updated sitemap.xml ({len(sitemap_entries)} URLs).")
 
 
 if __name__ == "__main__":
