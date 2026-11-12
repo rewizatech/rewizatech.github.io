@@ -5,7 +5,13 @@
   <h1>Katalog Aplikasi <span class="gradient-text">Android</span></h1>
   <p class="lead">Temukan portofolio aplikasi Android yang dikembangkan oleh Rewiza Tech. Seluruh aplikasi dirancang dengan performa optimal, antarmuka intuitif, dan perlindungan privasi yang ketat.</p>
 
-  <div class="card-grid one-col" style="margin-top:30px">
+  <div class="filter-pills" role="tablist" aria-label="Filter kategori aplikasi" style="margin-top:28px">
+    <button type="button" class="filter-pill is-active" data-app-filter="all" role="tab" aria-selected="true">Semua Kategori</button>
+    <button type="button" class="filter-pill" data-app-filter="business" role="tab" aria-selected="false">Bisnis &amp; Kasir (POS)</button>
+    <button type="button" class="filter-pill" data-app-filter="utilities" role="tab" aria-selected="false">Utilitas &amp; Media</button>
+  </div>
+
+  <div class="card-grid one-col" style="margin-top:20px" data-apps-container>
     {{CATALOG_APPS_CARDS}}
   </div>
 

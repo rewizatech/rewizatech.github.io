@@ -21,6 +21,8 @@
       "privacyUrl": "/privacy-policy/kasir-laris.html",
       "status": "Menunggu Rilis Resmi",
       "category": "BusinessApplication",
+      "categorySlug": "business",
+      "categoryName": "Bisnis & POS",
       "operatingSystem": "Android",
       "playStoreUrl": null
     },
@@ -36,6 +38,8 @@
       "privacyUrl": "/privacy-policy/utility.html",
       "status": "Dalam Pengembangan",
       "category": "UtilitiesApplication",
+      "categorySlug": "utilities",
+      "categoryName": "Utilitas & Media",
       "operatingSystem": "Android",
       "playStoreUrl": null
     }

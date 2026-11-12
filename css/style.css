@@ -923,6 +923,46 @@ a.mini-app:hover {
   color: var(--primary);
 }
 
+/* App Catalog Filter Pills */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter-pill {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-pill:hover {
+  border-color: var(--primary);
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 92%, var(--primary));
+}
+
+.filter-pill.is-active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(0, 114, 245, .28);
+}
+
+.app-row-card.is-hidden {
+  display: none !important;
+}
+
 /* Floating Back to Top Button (Icon Only) */
 .back-to-top {
   position: fixed;

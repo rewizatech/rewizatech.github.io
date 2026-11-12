@@ -40,7 +40,7 @@
   <!-- Anti-FOUT theme loader -->
   <script>(()=>{try{var t=localStorage.getItem('rwz-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/style.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Katalog Aplikasi Android Rewiza Tech", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "Kasir Laris POS", "url": "https://rewizatech.github.io/apps/kasir-laris/", "applicationCategory": "BusinessApplication", "operatingSystem": "Android", "description": "Aplikasi pencatatan kasir dan manajemen stok barang offline-first untuk toko kelontong, kedai, dan pelaku UMKM. Bekerja tanpa internet dengan penyimpanan database lokal SQLite/Room."}}, {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "Rewiza Smart Compress", "url": "https://rewizatech.github.io/apps/#smart-compress", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Android", "description": "Utilitas Android untuk mengompresi ukuran file foto dan video langsung di memori HP Anda secara cepat tanpa mengurangi ketajaman dan tanpa mengunggah file ke server."}}]}</script>
+  <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "ItemList", "name": "Katalog Aplikasi Android Rewiza Tech", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "Kasir Laris POS", "url": "https://rewizatech.github.io/apps/kasir-laris/", "applicationCategory": "BusinessApplication", "operatingSystem": "Android", "description": "Aplikasi pencatatan kasir dan manajemen stok barang offline-first untuk toko kelontong, kedai, dan pelaku UMKM. Bekerja tanpa internet dengan penyimpanan database lokal SQLite/Room."}}, {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "Rewiza Smart Compress", "url": "https://rewizatech.github.io/apps/#smart-compress", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Android", "description": "Utilitas Android untuk mengompresi ukuran file foto dan video langsung di memori HP Anda secara cepat tanpa mengurangi ketajaman dan tanpa mengunggah file ke server."}}]}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://rewizatech.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Katalog Aplikasi", "item": "https://rewizatech.github.io/apps/"}]}]</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Lewati ke konten</a>
@@ -93,12 +93,21 @@
   <h1>Katalog Aplikasi <span class="gradient-text">Android</span></h1>
   <p class="lead">Temukan portofolio aplikasi Android yang dikembangkan oleh Rewiza Tech. Seluruh aplikasi dirancang dengan performa optimal, antarmuka intuitif, dan perlindungan privasi yang ketat.</p>
 
-  <div class="card-grid one-col" style="margin-top:30px">
-    <section class="card app-row-card" id="kasir-laris">
+  <div class="filter-pills" role="tablist" aria-label="Filter kategori aplikasi" style="margin-top:28px">
+    <button type="button" class="filter-pill is-active" data-app-filter="all" role="tab" aria-selected="true">Semua Kategori</button>
+    <button type="button" class="filter-pill" data-app-filter="business" role="tab" aria-selected="false">Bisnis &amp; Kasir (POS)</button>
+    <button type="button" class="filter-pill" data-app-filter="utilities" role="tab" aria-selected="false">Utilitas &amp; Media</button>
+  </div>
+
+  <div class="card-grid one-col" style="margin-top:20px" data-apps-container>
+    <section class="card app-row-card" id="kasir-laris" data-category="business">
       <div class="app-symbol"><img src="/assets/kasir-laris.png" alt="Ikon Kasir Laris POS"></div>
       <div class="app-row-body">
         <div class="app-row-head">
-          <h3>Kasir Laris POS</h3>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <h3 style="margin:0">Kasir Laris POS</h3>
+            <span class="badge" style="font-size:11px">Bisnis &amp; POS</span>
+          </div>
           <span class="status">Menunggu Rilis Resmi</span>
         </div>
         <p class="app-row-desc">Aplikasi pencatatan kasir dan manajemen stok barang offline-first untuk toko kelontong, kedai, dan pelaku UMKM. Bekerja tanpa internet dengan penyimpanan database lokal SQLite/Room.</p>
@@ -107,11 +116,14 @@
         </div>
       </div>
     </section>
-    <section class="card app-row-card" id="smart-compress">
+    <section class="card app-row-card" id="smart-compress" data-category="utilities">
       <div class="app-symbol"><img src="/assets/icons/smart-compress.svg" alt="Ikon Rewiza Smart Compress"></div>
       <div class="app-row-body">
         <div class="app-row-head">
-          <h3>Rewiza Smart Compress</h3>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <h3 style="margin:0">Rewiza Smart Compress</h3>
+            <span class="badge" style="font-size:11px">Utilitas &amp; Media</span>
+          </div>
           <span class="status">Dalam Pengembangan</span>
         </div>
         <p class="app-row-desc">Utilitas Android untuk mengompresi ukuran file foto dan video langsung di memori HP Anda secara cepat tanpa mengurangi ketajaman dan tanpa mengunggah file ke server.</p>

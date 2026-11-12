@@ -197,3 +197,4 @@ def generate_og_image() -> None:
 if __name__ == "__main__":
     generate_favicons()
     generate_og_image()
+

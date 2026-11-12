@@ -56,12 +56,17 @@ def render_catalog_apps_cards(apps: list[dict]) -> str:
         actions.append(
             f'<a class="button secondary sm" href="{html.escape(app["privacyUrl"])}">Kebijakan Privasi</a>'
         )
+        cat_slug = html.escape(app.get("categorySlug", "general"))
+        cat_name = html.escape(app.get("categoryName", "Aplikasi"))
         blocks.append(
-            f'<section class="card app-row-card" id="{html.escape(app["id"])}">\n'
+            f'<section class="card app-row-card" id="{html.escape(app["id"])}" data-category="{cat_slug}">\n'
             f'      <div class="app-symbol"><img src="{html.escape(app["icon"])}" alt="Ikon {html.escape(app["name"])}"></div>\n'
             f'      <div class="app-row-body">\n'
             f'        <div class="app-row-head">\n'
-            f'          <h3>{html.escape(app["name"])}</h3>\n'
+            f'          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">\n'
+            f'            <h3 style="margin:0">{html.escape(app["name"])}</h3>\n'
+            f'            <span class="badge" style="font-size:11px">{cat_name}</span>\n'
+            f'          </div>\n'
             f'          <span class="status">{html.escape(app["status"])}</span>\n'
             f'        </div>\n'
             f'        <p class="app-row-desc">{html.escape(app["summary"])}</p>\n'
@@ -74,7 +79,49 @@ def render_catalog_apps_cards(apps: list[dict]) -> str:
     return "\n    ".join(blocks)
 
 
-def render_json_ld(kind: str, studio: dict, apps: list[dict]) -> str:
+def build_breadcrumb_schema(page_url: str, page_title: str, studio_url: str) -> dict | None:
+    if page_url in ("/", "/404.html"):
+        return None
+    items = [{"@type": "ListItem", "position": 1, "name": "Beranda", "item": studio_url + "/"}]
+    parts = [p for p in page_url.strip("/").split("/") if p]
+    if not parts:
+        return None
+
+    current_path = studio_url
+    for idx, part in enumerate(parts, start=2):
+        current_path += "/" + part
+        name = part.replace(".html", "").replace("-", " ").title()
+        if part == "apps":
+            name = "Katalog Aplikasi"
+        elif part == "about":
+            name = "Tentang Kami"
+        elif part == "privacy-policy":
+            name = "Pusat Legal"
+        elif part == "support":
+            name = "Layanan Bantuan"
+        elif part == "faq":
+            name = "FAQ"
+        elif part == "terms":
+            name = "Syarat & Ketentuan"
+        elif part in ("kasir-laris", "kasir-laris.html"):
+            name = "Kasir Laris POS"
+        elif part == "utility.html":
+            name = "Aplikasi Utilitas"
+
+        items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "name": name,
+            "item": current_path + ("/" if not current_path.endswith(".html") else ""),
+        })
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": items,
+    }
+
+
+def render_json_ld(kind: str, studio: dict, apps: list[dict], page: dict) -> str:
     if kind == "organization":
         payload = [
             {
@@ -91,18 +138,18 @@ def render_json_ld(kind: str, studio: dict, apps: list[dict]) -> str:
                     "Jetpack Compose",
                     "Offline-First Architecture",
                     "Point of Sale Software",
-                    "SQLite & Room Database"
+                    "SQLite & Room Database",
                 ],
                 "sameAs": [
-                    "https://github.com/rewizatech"
+                    "https://github.com/rewizatech",
                 ],
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "Customer Support",
                     "email": studio["email"],
                     "telephone": "+6283155662121",
-                    "availableLanguage": ["id", "en"]
-                }
+                    "availableLanguage": ["id", "en"],
+                },
             },
             {
                 "@context": "https://schema.org",
@@ -110,43 +157,56 @@ def render_json_ld(kind: str, studio: dict, apps: list[dict]) -> str:
                 "name": studio["name"],
                 "url": studio["url"] + "/",
                 "inLanguage": "id-ID",
-                "description": "Situs resmi studio pengembang aplikasi Android Rewiza Tech."
-            }
+                "description": "Situs resmi studio pengembang aplikasi Android Rewiza Tech.",
+            },
         ]
         return '<script type="application/ld+json">' + json.dumps(payload, ensure_ascii=False) + "</script>"
+
     if kind == "kasir-laris":
         app = next((a for a in apps if a["id"] == "kasir-laris"), None)
         if app:
-            payload = {
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": app["name"],
-                "operatingSystem": "Android",
-                "applicationCategory": "BusinessApplication",
-                "description": app["summary"],
-                "url": studio["url"] + app["url"],
-                "image": studio["url"] + app["icon"],
-                "softwareVersion": "1.0",
-                "author": {
-                    "@type": "Organization",
-                    "name": studio["name"],
-                    "url": studio["url"] + "/",
+            payload = [
+                {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": app["name"],
+                    "operatingSystem": "Android",
+                    "applicationCategory": "BusinessApplication",
+                    "description": app["summary"],
+                    "url": studio["url"] + app["url"],
+                    "image": studio["url"] + app["icon"],
+                    "softwareVersion": "1.0",
+                    "author": {
+                        "@type": "Organization",
+                        "name": studio["name"],
+                        "url": studio["url"] + "/",
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "IDR",
+                        "availability": "https://schema.org/InStock",
+                    },
+                    "featureList": [
+                        "Penyimpanan database SQLite lokal tanpa internet",
+                        "Pencatatan transaksi kasir",
+                        "Manajemen produk dan kategori",
+                        "Pratinjau struk belanja transaksi",
+                        "Privasi penuh tanpa pelacakan data",
+                    ],
                 },
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "IDR",
-                    "availability": "https://schema.org/InStock"
+                {
+                    "@context": "https://schema.org",
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Beranda", "item": studio["url"] + "/"},
+                        {"@type": "ListItem", "position": 2, "name": "Katalog Aplikasi", "item": studio["url"] + "/apps/"},
+                        {"@type": "ListItem", "position": 3, "name": "Kasir Laris POS", "item": studio["url"] + app["url"]},
+                    ],
                 },
-                "featureList": [
-                    "Penyimpanan database SQLite lokal tanpa internet",
-                    "Pencatatan transaksi kasir",
-                    "Manajemen produk dan kategori",
-                    "Cetak struk belanja",
-                    "Privasi penuh tanpa pelacakan data"
-                ]
-            }
+            ]
             return '<script type="application/ld+json">' + json.dumps(payload, ensure_ascii=False) + "</script>"
+
     if kind == "catalog":
         items = []
         for idx, app in enumerate(apps, 1):
@@ -159,16 +219,29 @@ def render_json_ld(kind: str, studio: dict, apps: list[dict]) -> str:
                     "url": studio["url"] + app["url"],
                     "applicationCategory": app.get("category", "UtilitiesApplication"),
                     "operatingSystem": "Android",
-                    "description": app["summary"]
-                }
+                    "description": app["summary"],
+                },
             })
         payload = {
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": "Katalog Aplikasi Android Rewiza Tech",
-            "itemListElement": items
+            "itemListElement": items,
         }
-        return '<script type="application/ld+json">' + json.dumps(payload, ensure_ascii=False) + "</script>"
+        breadcrumb = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Beranda", "item": studio["url"] + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Katalog Aplikasi", "item": studio["url"] + "/apps/"},
+            ],
+        }
+        return '<script type="application/ld+json">' + json.dumps([payload, breadcrumb], ensure_ascii=False) + "</script>"
+
+    # Default fallback for pages with kind "none"
+    bc = build_breadcrumb_schema(page.get("url", "/"), page.get("title", ""), studio["url"])
+    if bc:
+        return '<script type="application/ld+json">' + json.dumps(bc, ensure_ascii=False) + "</script>"
     return ""
 
 
@@ -200,7 +273,7 @@ def build() -> None:
         rendered = rendered.replace("{{canonical_url}}", html.escape(canonical_url))
         rendered = rendered.replace("{{og_image}}", html.escape(page["ogImage"]))
         rendered = rendered.replace("{{twitter_card}}", html.escape(page["twitterCard"]))
-        rendered = rendered.replace("{{json_ld}}", render_json_ld(page.get("jsonLd", "none"), studio, apps))
+        rendered = rendered.replace("{{json_ld}}", render_json_ld(page.get("jsonLd", "none"), studio, apps, page))
         for key in ("home", "apps", "about", "legal", "support"):
             attr = ' aria-current="page"' if nav == key else ""
             rendered = rendered.replace(f"{{{{nav_{key}}}}}", attr)

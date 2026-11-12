@@ -104,6 +104,30 @@
       });
     });
   }
+
+  // App Catalog Interactive Filtering
+  const filterPills = document.querySelectorAll('[data-app-filter]');
+  const appCards = document.querySelectorAll('.app-row-card[data-category]');
+  if (filterPills.length && appCards.length) {
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const target = pill.getAttribute('data-app-filter');
+        filterPills.forEach(p => {
+          const isActive = p === pill;
+          p.classList.toggle('is-active', isActive);
+          p.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        appCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (target === 'all' || cat === target) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+  }
 })();
 
 if (
