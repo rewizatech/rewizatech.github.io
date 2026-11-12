@@ -97,6 +97,8 @@ def main() -> int:
                 errors.append(f"Missing canonical link in {rel}")
             if "localStorage.getItem('rwz-theme')" not in text:
                 errors.append(f"Missing anti-FOUT head script in {rel}")
+            if "data-back-to-top" not in text:
+                errors.append(f"Missing back-to-top button in {rel}")
             h1_count = len(re.findall(r"<h1\b", text))
             if h1_count != 1:
                 errors.append(f"Expected exactly 1 <h1> in {rel}, found {h1_count}")

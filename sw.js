@@ -1,4 +1,4 @@
-const CACHE = 'rewiza-static-v3';
+const CACHE = 'rewiza-static-v4';
 const CORE = [
   '/',
   '/apps/',

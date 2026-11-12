@@ -76,6 +76,34 @@
       }
     });
   });
+
+  const backToTopBtn = document.querySelector('[data-back-to-top]');
+  if (backToTopBtn) {
+    let isTicking = false;
+    const onScroll = () => {
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 280) {
+            backToTopBtn.classList.add('is-visible');
+          } else {
+            backToTopBtn.classList.remove('is-visible');
+          }
+          isTicking = false;
+        });
+        isTicking = true;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    backToTopBtn.addEventListener('click', () => {
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion ? 'auto' : 'smooth'
+      });
+    });
+  }
 })();
 
 if (
